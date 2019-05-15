@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  network: MyString
+  views: 1
+  likes: 1
+  subscribers: 1
+  age: MyString
+  country: MyString
+
+two:
+  network: MyString
+  views: 1
+  likes: 1
+  subscribers: 1
+  age: MyString
+  country: MyString

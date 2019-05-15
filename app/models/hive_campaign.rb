@@ -1,0 +1,2 @@
+class HiveCampaign < ApplicationRecord
+end
