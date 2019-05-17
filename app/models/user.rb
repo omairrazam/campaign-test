@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+    ALL_NETWORDS= %w(yt ig)
 
 	def from_omniauth(auth)
 		# user = User.find_or_initialize_by(uid: auth['uid'])
@@ -15,6 +16,10 @@ class User < ApplicationRecord
 
 	def yt_client
 		Yt::Account.new access_token: self.yt_token
+	end
+
+	def my_networks
+		ALL_NETWORDS.select{|n|self.respond_to?("#{n}_uid")&&self.public_send("#{n}_uid").present?}
 	end
 
 	def my_youtube_metrics

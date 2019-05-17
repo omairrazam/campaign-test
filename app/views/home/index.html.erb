@@ -40,7 +40,7 @@
 			<th>Country</th>
 		</tr>
 
-		<% %w(yt).each do |network| %>
+		<% current_user.my_networks.each do |network| %>
 			<tr>
 				<td><%=network%></td>
 				<td><%=current_user.public_send("#{network}_views_count")%></td>
