@@ -8,11 +8,20 @@ class User < ApplicationRecord
 	def from_omniauth(auth)
 		# user = User.find_or_initialize_by(uid: auth['uid'])
 		# user.name = auth['info']['name']
-		self.yt_token = auth['credentials']['token']
-		self.yt_uid = auth['uid']
-		self.save!
-		self.my_youtube_metrics
-		self
+		if(auth['provider']=='instagram')
+			self.ig_token = auth['credentials']['token']
+			self.ig_uid = auth['uid']
+			self.save!
+			self.my_instagram_metrics
+			self
+		else
+			self.yt_token = auth['credentials']['token']
+			self.yt_uid = auth['uid']
+			self.save!
+			self.my_youtube_metrics
+			self
+		end
+		
 	end
 
 	def yt_client
@@ -39,6 +48,8 @@ class User < ApplicationRecord
 		self.update!(result)
 	end
 
+	def my_instagram_metrics
+	end
 	
 end
 

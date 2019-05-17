@@ -14,6 +14,8 @@
     <p class="alert"><%= alert %></p>
     <% if user_signed_in? %>
       <%= link_to 'sync youtube', '/auth/google_oauth2' %> |
+      
+      <%= link_to 'sync instagram', '/auth/instagram' %> |
       <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     <%end%>
     <%= yield %>
