@@ -11,6 +11,7 @@ class User < ApplicationRecord
 		self.yt_token = auth['credentials']['token']
 		self.yt_uid = auth['uid']
 		self.save!
+		self.my_youtube_metrics
 		self
 	end
 
@@ -23,7 +24,6 @@ class User < ApplicationRecord
 	end
 
 	def my_youtube_metrics
-
 		view_count=0
 		like_count=0
 		subscribers_gained=0
