@@ -1,2 +1,55 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div style="width:40%; float:left">
+	<h1>Your Matched Campaigns</h1>
+	<% if @campaigns.present? %>
+	<table style="width:100%" border="1">
+	  <tr>
+	    <th>Network</th>
+	    <th>Views</th> 
+	    <th>Likes</th>
+	    <th>Subscribers</th>
+	    <th>Age</th>
+	    <th>Country</th>
+	  </tr>
+
+	  <% @campaigns.each do |campaign| %>
+		  <tr>
+		    <td><%=campaign.network%></td>
+		    <td><%= campaign.views%></td> 
+		    <td><%= campaign.likes%></td>
+		    <td><%= campaign.subscribers%></td>
+		    <td></td> 
+		    <td></td>
+		  </tr>
+	  <% end %>
+	</table>
+	<% else %>
+	 <p>No Campaigns found</p>
+	<% end %>
+</div>
+
+<div style="width:40%; float:right">
+	<h1>Your Network Stats</h1>
+	
+	<table style="width:100%" border="1">
+		<tr>
+			<th>Network</th>
+			<th>Views</th> 
+			<th>Likes</th>
+			<th>Subscribers</th>
+			<th>Age</th>
+			<th>Country</th>
+		</tr>
+
+		<% %w(yt).each do |network| %>
+			<tr>
+				<td><%=network%></td>
+				<td><%=current_user.public_send("#{network}_views_count")%></td>
+				<td><%=current_user.public_send("#{network}_likes_count")%></td> 
+				<td><%=current_user.public_send("#{network}_subscribers_count")%></td>
+				<td></td>
+				<td></td>
+			</tr>
+		<% end %>
+	
+	</table>
+</div>

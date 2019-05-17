@@ -1,0 +1,2 @@
+module HiveCampaignHelper
+end
