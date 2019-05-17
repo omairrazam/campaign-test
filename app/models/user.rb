@@ -32,7 +32,6 @@ class User < ApplicationRecord
 			view_count+=video.view_count
 			like_count+=video.like_count
 			#subscribers_gained+=video.subscribers_gained
-
 		end
 
 		result = {yt_views_count:view_count, yt_likes_count:like_count,yt_subscribers_count:subscribers_gained}
