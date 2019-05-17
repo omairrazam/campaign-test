@@ -3,6 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  	validates :dob, :presence => true
+  	validates :country, :presence => true
+
     ALL_NETWORDS= %w(yt ig)
 
 	def from_omniauth(auth)
