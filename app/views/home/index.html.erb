@@ -46,8 +46,8 @@
 				<td><%=current_user.respond_to?("#{network}_views_count") ? current_user.public_send("#{network}_views_count"):''%></td>
 				<td><%=current_user.respond_to?("#{network}_likes_count") ? current_user.public_send("#{network}_likes_count"):''%></td> 
 				<td><%=current_user.respond_to?("#{network}_subscribers_count") ? current_user.public_send("#{network}_subscribers_count"):''%></td>
-				<td></td>
-				<td></td>
+				<td><%=age%></td>
+				<td><%=current_user.country%></td>
 			</tr>
 		<% end %>
 	
