@@ -3,3 +3,4 @@ class AddDobToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :dob, :datetime
   end
 end
+
